@@ -81,6 +81,8 @@ int main(void)
 	while (!is_full(&queue))
 	{
 		scanf("%d", &element);
+		if(element=='\n')
+			break;
 		enqueue(&queue, element);
 	}
 
