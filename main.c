@@ -73,21 +73,19 @@ element peek(QueueType *q)
 
 int main(void)
 {
-	QueueType queue;
-	int element;
+	QueueType q;
+	
+	init_queue(&q);
+	
+	for(int i=0; i < MAX_QUEUE_SIZE-1; i++)
+		enqueue(&q, i);
+	
+	i = dequeue(&q);
+	i = dequeue(&q);
+	
+	enqueue(&q, i);
 
-	init_queue(&queue);
-	printf("Queue에 삽입할 정수를 입력하시오:\n");
-	while (!is_full(&queue))
-	{
-		scanf("%d", &element);
-		if(element=='\n')
-			break;
-		enqueue(&queue, element);
-	}
-
-	printf("Queue에 %d개의 아이템이 저장되어 있음.\n", get_count(&queue));
-
+	printf("%d\n", get_count(&q));
 
 	return 0;
 }
